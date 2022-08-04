@@ -29,7 +29,7 @@ from .permissions import (
     IsReadOnly,
     IsAdmin
 )
-from reviews.models import Category, Genre, Review, Title
+from api_yamdb.reviews.models import Category, Genre, Review, Title
 from .utils import generate_confirmation_code
 from .filters import TitleFilter
 
