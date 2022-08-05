@@ -8,7 +8,7 @@ services:
     env_file:
       - ./.env
   web:
-    image: artemis13/yamdb
+    image: artemis13/api_yamdb
     restart: always
     volumes:
       - static_value:/app/static/

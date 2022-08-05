@@ -41,7 +41,7 @@ jobs:
         with:
           context: api_yamdb
           push: true
-          tags: artemis13/yamdb:latest
+          tags: artemis13/api_yamdb:latest
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
@@ -54,7 +54,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker pull  artemis13/yamdb
+            sudo docker pull  artemis13/api_yamdb
             sudo docker-compose stop
             sudo docker-compose rm web
             touch .env
