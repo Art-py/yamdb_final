@@ -1,5 +1,4 @@
-version: '3.8'
-
+version: '3'
 services:
   db:
     image: postgres:13.0-alpine
@@ -7,6 +6,7 @@ services:
       - db_value:/var/lib/postgresql/data/
     env_file:
       - ./.env
+
   web:
     image: artemis13/api_yamdb
     restart: always
