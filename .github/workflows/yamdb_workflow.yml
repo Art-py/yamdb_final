@@ -59,6 +59,7 @@ jobs:
           cd yamdb
           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
           sudo docker-compose stop
+          sudo docker compose down -v
           sudo docker-compose rm web
           rm .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
