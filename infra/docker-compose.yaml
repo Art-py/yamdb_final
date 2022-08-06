@@ -1,14 +1,15 @@
-version: '3'
+version: '3.3'
+
 services:
   db:
     image: postgres:13.0-alpine
     volumes:
-      - db_value:/var/lib/postgresql/data/
+      - /var/lib/postgresql/data/
     env_file:
       - ./.env
 
   web:
-    image: artemis13/api_yamdb
+    image: artemis13/api_yamdb:latest
     restart: always
     volumes:
       - static_value:/app/static/
@@ -17,6 +18,7 @@ services:
       - db
     env_file:
       - ./.env
+
   nginx:
     image: nginx:1.21.3-alpine
     ports:
@@ -27,7 +29,7 @@ services:
       - media_value:/var/html/media/
     depends_on:
       - web
+
 volumes:
-  db_value:
   static_value:
   media_value:
